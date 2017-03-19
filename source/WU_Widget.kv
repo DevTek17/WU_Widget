@@ -1,0 +1,101 @@
+#:kivy 1.9.2
+<DataLabel@Label>:
+    color: 0.10980392156862745, .66666, 0.5568627450980392, 1
+    halign: 'left'
+    valign: 'center'
+    text_size: self.size
+
+<WU_GridLayout>:
+    orientation: "vertical"
+    padding: 10
+    canvas:
+        Color:
+            rgba: .1725, .1725, .1725, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            
+    Button:
+        color: 0.10980392156862745, .66666, 0.5568627450980392, 1
+        size_hint_y: None
+        height: "40dp"
+        text: "Update Weather"
+        halign: 'center'
+        valign: 'center'
+        on_press: root.update()
+        text_size: self.size
+        
+    BoxLayout:
+        BoxLayout:
+            DataLabel:
+                text: root.location
+                halign: 'center'
+                valign: 'center'
+            BoxLayout:
+                orientation: "vertical"
+                
+                Label:
+                    text: root.temp_string
+                    color: 0.10980392156862745, .66666, 0.5568627450980392, 1
+                    font_size: 27
+                    valign: 'bottom'
+                
+                AsyncImage:
+                    source: root.icon_url
+                
+                Label:
+                    text: root.condition
+                    color: 0.10980392156862745, .66666, 0.5568627450980392, 1
+                    font_size: 27
+                    valign: "top"
+            
+            Label:
+                text: root.wind_string
+                color: 0.10980392156862745, .66666, 0.5568627450980392, 1
+                font_size: 27
+                
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: .3, 1
+            
+            DataLabel:
+                text: root.pressure
+            DataLabel:
+                text: root.visibility
+            DataLabel:
+                text: root.clouds
+            DataLabel:
+                text: root.humidity
+            DataLabel:
+                text: root.dew_point
+            DataLabel:
+                text: root.rainfall
+    
+
+    BoxLayout:
+        size_hint: 1, .05
+        
+        AsyncImage:
+            source: root.wu_icon
+            pos_hint: {'center_x': 1, 'center_y': .5}
+        
+        Label:
+            color: 0.10980392156862745, .66666, 0.5568627450980392, 1
+            text: "https://www.wunderground.com/?apiref=034770867157d2bb"
+            halign: 'left'
+            valign: 'center'
+            font_size: 10
+            
+        Label:
+            color: 0.10980392156862745, .66666, 0.5568627450980392, 1
+            text: root.station_id
+            halign: 'left'
+            valign: 'center'
+            font_size: 10
+            
+        Label:
+            color: 0.10980392156862745, .66666, 0.5568627450980392, 1
+            text: root.ob_time
+            halign: 'justify'
+            valign: 'center'
+            font_size: 10
