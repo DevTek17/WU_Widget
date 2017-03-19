@@ -8,7 +8,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Label
 
-api_key = '4db8916663bbedde'
+api_key = 'get from wunderground.com'
 
 class WU_GridLayout(BoxLayout):
     location = StringProperty("")
